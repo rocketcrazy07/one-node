@@ -1,0 +1,43 @@
+{
+  "name": "one-node",
+  "version": "0.0.1",
+  "description": "A node control panel",
+  "main": "app.js",
+  "dependencies": {
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-mongoose": "^2.0.0",
+    "koa-passport": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.1.4"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.28",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "ts-node": "^6.1.0",
+    "typescript": "^2.9.1"
+  },
+  "scripts": {
+    "test": "echo \"no tests yet\"",
+    "watch-server": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocketcrazy07/one-node.git"
+  },
+  "keywords": [
+    "nodejs",
+    "panel",
+    "control"
+  ],
+  "author": "Chris Watts, Grey Delamar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rocketcrazy07/one-node/issues"
+  },
+  "homepage": "https://github.com/rocketcrazy07/one-node#readme"
+}
