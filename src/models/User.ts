@@ -1,5 +1,7 @@
-import {instanceMethod,InstanceType, pre, prop, Typegoose} from 'typegoose'
+import {instanceMethod, InstanceType, pre, prop, Ref, Typegoose} from 'typegoose'
 import * as bcrypt from 'bcrypt';
+import {Client} from './Client';
+
 const saltgenRounds = 10;
 
 @pre<User>('save', async function(next) {
@@ -7,6 +9,8 @@ const saltgenRounds = 10;
     // noinspection JSPotentiallyInvalidUsageOfClassThis
     this.password = await bcrypt.hash(this.password, saltgenRounds);
   }
+
+
   return next();
 })
 
@@ -22,8 +26,13 @@ export class User extends Typegoose{
   last_name: string;
   @prop()
   email: string;
+  @prop({ref:Client})
+  client: Ref<Client>;
   @instanceMethod
   async comparePassword(this: InstanceType<User>, pw: string){
     return await bcrypt.compare(pw, this.password)
   };
 }
+let UserModel = new User().getModelForClass(User,{schemaOptions:{timestamps:true}});
+
+export default UserModel;
